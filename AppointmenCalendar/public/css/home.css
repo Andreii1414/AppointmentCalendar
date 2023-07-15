@@ -1,0 +1,30 @@
+.calendar{
+    width: 300px;
+    text-align: center;
+    font-family: 'Comic Sans MS';
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.header button{
+    cursor: pointer;
+}
+
+.table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td{
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.table th{
+    font-weight: bold;
+}
