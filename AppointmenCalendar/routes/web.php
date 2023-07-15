@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AppointmentController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/register', [RegisterController::class, 'registerUser'])->name('registerUser');
@@ -23,3 +24,5 @@ Route::middleware('checksessionexpiration')->group(function () {
         return view('home');
     })->name('home');
 });
+
+Route::get('/get-appointments', [AppointmentController::class, 'getAppointments'])->name('getAppointments');

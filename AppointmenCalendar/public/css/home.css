@@ -28,3 +28,24 @@
 .table th{
     font-weight: bold;
 }
+
+.table td{
+    cursor: pointer;
+}
+
+.red{
+    color: red;
+}
+
+.green{
+    color: green;
+}
+
+#availability .green {
+    cursor: pointer;
+}
+
+.green, .red{
+    margin-bottom: 5px;
+}
+
