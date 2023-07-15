@@ -7,6 +7,8 @@
 </head>
 <body>
     <h1>You have successfully registered! Press the button below to log in.</h1>
-    <button>Login</button>
+    <a href="/login">
+         <button>Login</button>
+    </a>
 </body>
 </html>
