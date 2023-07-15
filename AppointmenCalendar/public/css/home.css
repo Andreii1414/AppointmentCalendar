@@ -1,7 +1,11 @@
+body{
+    font-family: 'Comic Sans MS';
+}
+
 .calendar{
     width: 300px;
     text-align: center;
-    font-family: 'Comic Sans MS';
+    margin-left: 50px;
 }
 
 .header{
@@ -48,4 +52,29 @@
 .green, .red{
     margin-bottom: 5px;
 }
+.container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
 
+#your_appointments{
+    margin-left: 50px;
+    text-align: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul li:before {
+  content: 'x';
+  margin-right: 10px;
+  font-size: 18px;
+  color: red;
+  cursor: pointer;
+}
+
+li{
+    padding-bottom: 15px;
+}

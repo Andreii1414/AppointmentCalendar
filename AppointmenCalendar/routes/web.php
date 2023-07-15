@@ -26,3 +26,9 @@ Route::middleware('checksessionexpiration')->group(function () {
 });
 
 Route::get('/get-appointments', [AppointmentController::class, 'getAppointments'])->name('getAppointments');
+
+Route::post('/create-appointment', [AppointmentController::class, 'createAppointment'])->name('createAppointment');
+
+Route::get('/get-your-appointments', [AppointmentController::class, 'getYourAppointments'])->name('getYourAppointments');
+
+Route::put('/remove-appointment', [AppointmentController::class, 'removeAppointment'])->name('removeAppointment');
