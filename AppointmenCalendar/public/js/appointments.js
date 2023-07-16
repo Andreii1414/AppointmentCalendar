@@ -145,6 +145,7 @@ $(document).ready(function () {
 
             li.addEventListener('click', function () {
                 removeAppointment(appointment.app_date, appointment.idCol);
+                getAllAppointments();
             })
 
             ul.appendChild(li);
