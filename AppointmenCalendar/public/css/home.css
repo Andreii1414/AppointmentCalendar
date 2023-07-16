@@ -74,7 +74,7 @@ ul {
   list-style-type: none;
 }
 
-#your_appointments ul li:before {
+#your_appointments ul li:before, #all_appointments li:before {
   content: 'x';
   margin-right: 10px;
   font-size: 18px;
@@ -140,4 +140,15 @@ button:hover{
         align-items: center;
         flex-direction: column;
     }
+}
+.buttons{
+    margin-right: 50px;
+    width: 200px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.buttons button{
+
+    width: 150px;
 }

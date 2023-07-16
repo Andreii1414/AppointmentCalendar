@@ -4,6 +4,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\VerifyController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/register', [RegisterController::class, 'registerUser'])->name('registerUser');
@@ -24,6 +25,14 @@ Route::middleware('checksessionexpiration')->group(function () {
     Route::get('/home', function () {
         return view('home');
     })->name('home');
+
+    Route::get('/verify-form', function () {
+        return view('verify');
+    })->name('verify-form');
+
+    Route::get('/code', function () {
+        return view('code');
+    })->name('code');
 });
 
 Route::get('/get-appointments', [AppointmentController::class, 'getAppointments'])->name('getAppointments');
@@ -37,3 +46,7 @@ Route::put('/remove-appointment', [AppointmentController::class, 'removeAppointm
 Route::delete('/delete-user', [AdminController::class, 'deleteUser'])->name('deleteUser');
 
 Route::get('/get-all-appointments', [AdminController::class, 'getAllAppointments'])->name('getAllAppointments');
+
+Route::get('/verify', [VerifyController::class, 'sendToken'])->name('verify');
+
+Route::post('/verify-code', [VerifyController::class, 'verifyCode'])->name('verifyCode');

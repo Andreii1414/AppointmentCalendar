@@ -29,6 +29,7 @@ class LoginController extends \Illuminate\Routing\Controller
 
             Session::put('user_id', $user->id);
             Session::put('admin', $user->admin);
+            Session::put('verified', $user->verified);
             Session::put('login_time', $loginTime);
             Session::put('expiry_time', $expiryTime);
             Session::put('expiry_timestamp', $expiryTime->timestamp);

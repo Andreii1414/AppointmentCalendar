@@ -19,7 +19,7 @@ class RegisterController extends \Illuminate\Routing\Controller
             return redirect()->back()->withErrors($errors)->withInput();
         }
         
-        DB::insert('INSERT INTO users (name, email, password, admin) VALUES (?, ?, ?, ?)', [$name, $email, bcrypt($password), false]);
+        DB::insert('INSERT INTO users (name, email, password, admin, verified) VALUES (?, ?, ?, ?, ?)', [$name, $email, bcrypt($password), false, false]);
         return redirect()->route('success')->with('success', 'Registration successful!');
         
     }

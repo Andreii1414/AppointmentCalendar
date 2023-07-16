@@ -9,8 +9,28 @@
 
 </head>
 <body>
-
+        
         <div class = 'container'>
+
+            <div class = 'buttons'>
+                 @if(Session::has('user_id'))
+                    <h4 style = 'color: green'>You are connected</h4>
+                 @else 
+                    <h4 style = 'color: red'> You are not connected</h4>
+                 @endif
+
+                 <a href = "/login"> <button>Login</button> </a>
+                 <a href = "/register"><button>Register</button> </a>
+                 
+                 @if(Session::get('verified'))
+                    <h4 style = 'color: green'>Your account is verified. You can create appointments.</h4>
+                 @else 
+                    <h4 style = 'color: red'> Your account is not verified. You cannot create appointments.</h4>
+                    <a href = "/verify-form"> <button>Verify account</button></a>
+                 @endif
+
+            </div>
+
             <div class="calendar">
                 <div class="header">
                     <button id="prev">&lt;</button>
