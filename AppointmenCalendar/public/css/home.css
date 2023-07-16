@@ -67,7 +67,7 @@ ul {
   list-style-type: none;
 }
 
-ul li:before {
+#your_appointments ul li:before, #admin_panel ul li:before {
   content: 'x';
   margin-right: 10px;
   font-size: 18px;
@@ -75,7 +75,7 @@ ul li:before {
   cursor: pointer;
 }
 
-li{
+#your_appointments li, #admin_panel li{
     padding-bottom: 15px;
 }
 
@@ -84,3 +84,10 @@ li{
     background-color: #f5f5f5;
     cursor: not-allowed;
   }
+
+#admin_panel{
+    margin-left: 50px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}

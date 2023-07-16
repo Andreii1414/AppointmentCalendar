@@ -3,6 +3,7 @@
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/register', [RegisterController::class, 'registerUser'])->name('registerUser');
@@ -32,3 +33,7 @@ Route::post('/create-appointment', [AppointmentController::class, 'createAppoint
 Route::get('/get-your-appointments', [AppointmentController::class, 'getYourAppointments'])->name('getYourAppointments');
 
 Route::put('/remove-appointment', [AppointmentController::class, 'removeAppointment'])->name('removeAppointment');
+
+Route::delete('/delete-user', [AdminController::class, 'deleteUser'])->name('deleteUser');
+
+Route::get('/get-all-appointments', [AdminController::class, 'getAllAppointments'])->name('getAllAppointments');
