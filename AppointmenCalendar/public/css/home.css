@@ -78,3 +78,9 @@ ul li:before {
 li{
     padding-bottom: 15px;
 }
+
+.table td.disabled {
+    color: red;
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+  }

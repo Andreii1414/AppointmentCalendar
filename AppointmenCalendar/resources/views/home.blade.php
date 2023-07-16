@@ -41,8 +41,8 @@
 
         </div>
 
-    <script src="{{ url('js/home.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{{ url('js/home.js') }}"></script>
     <script>
         $(document).ready(function(){
 
@@ -226,7 +226,7 @@
             }
             //------------------
 
-            $(document).on('click', '.table td', function(){
+            $(document).on('click', '.table td:not(.disabled)', function(){
                 var day = $(this).text();
                 var month = $('#month-year').text().split(' ')[0];
                 var year = $('#month-year').text().split(' ')[1];
