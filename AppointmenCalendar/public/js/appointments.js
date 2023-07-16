@@ -118,10 +118,10 @@ $(document).ready(function () {
         })
     }
 
-    window.onload = function () {
-        getYourAppointments();
-        getAllAppointments();
-    }
+    
+    getYourAppointments();
+    getAllAppointments();
+    
 
     function printAppointments(appointments) {
         var divApp = document.getElementById('your_appointments');
