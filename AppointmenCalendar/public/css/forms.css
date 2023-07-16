@@ -1,0 +1,53 @@
+body, html {
+    margin: 0 auto;
+    height: 100%;
+    font-family: 'Comic Sans MS';
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    background: linear-gradient(to bottom, #000000, #333333);
+}
+
+input{
+    padding: 5px;
+    border: 1px groove white;
+    margin-bottom: 10px;
+    width: 300px;
+    border-radius: 8px;
+    font-family: 'Comic Sans MS';
+}
+
+.content{
+    background-color: black;
+    padding: 50px;
+    border-radius: 20px;
+}
+
+button{
+    cursor: pointer;
+    padding: 3px;
+    width: 150px;
+    height: 30px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, #222831, #ff5722);
+    color: white;
+    font-weight: bold;
+    transition: backgroung-color 0.3s ease;
+}
+
+button:hover{
+    background: linear-gradient(to bottom, #192129, #e64a19);
+}
+
+h1{
+    background-image: linear-gradient(to bottom, #222831, #ff5722);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
