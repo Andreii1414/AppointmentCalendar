@@ -5,7 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
+
+require __DIR__ . '/../../../vendor/autoload.php';
+use Swift_SmtpTransport;
+use Swift_Mailer;
+use Swift_Message;
+use Swift_SwiftException;  
 
 class AppointmentController extends Controller
 {
@@ -92,6 +99,50 @@ class AppointmentController extends Controller
 
         $column = 'id_app' . $idCol;
 
+        $interval = null;
+        if($idCol == 1)
+            $interval = '09:00 - 10:00';
+        else if($idCol == 2)
+            $interval = '10:30 - 11:30';
+        else if($idCol == 3)
+            $interval = '12:00 - 13:00';
+        else if($idCol == 4)
+            $interval = '15:30 - 16:30';
+        else if($idCol == 5)
+            $interval = '17:00 - 18:00';
+        else if($idCol == 6)
+            $interval = '18:30 - 19:30';
+        else if($idCol == 7)
+            $interval = '20:00 - 21:00';
+
+        $appointment = DB::select('SELECT * FROM appointments WHERE app_date = ?', [$appDate]);
+        $userId = $appointment[0]->$column;
+        $user = DB::select('SELECT * FROM users WHERE id = ?', [$userId]);
+        $userEmail = $user[0]->email;
+        $isAdmin = Session::get('admin');
+
+        if($isAdmin)
+        {
+            
+            try{ 
+                $transport = (new Swift_SmtpTransport('smtp.googlemail.com', 465, 'ssl'))
+                        ->setUsername('rot6980@gmail.com')
+                        ->setPassword('xcyoxtgmegexlycb');
+                $mailer = new Swift_Mailer($transport);
+
+                $body = "Your appointment on $appDate - ($interval) has been canceled by an admin.";
+                $message = (new Swift_Message('Appointment canceled'))
+                    ->setFrom(['rot6980@gmail.com' => 'Appointment Calendar'])
+                    ->setTo($userEmail)
+                    ->setBody($body)
+                    ->setContentType('text/html');
+                $mailer->send($message);
+            }
+            catch(Swift_SwiftException  $e){
+                echo $e->getMessage();
+            }
+        }
+
         DB::update('UPDATE appointments SET ' . $column . ' = ? where app_date = ?', [0, $appDate]);
 
         $emptyRow = DB::select('SELECT * from appointments where app_date = ? and id_app1 = ? and id_app2 = ? and id_app3 = ?
@@ -101,5 +152,6 @@ class AppointmentController extends Controller
         {
             DB::delete('DELETE FROM appointments where app_date = ?', [$appDate]);
         }
+        
     }
 }
