@@ -31,6 +31,10 @@
                 <div>
                     <button type="submit">Register</button>
                 </div>
+
+                <div>
+                    Have already an account? <a href='/login'>Login here</a>
+                </div>
         </form>
 
         @if ($errors->any())

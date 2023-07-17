@@ -21,9 +21,12 @@
                     <input placeholder='Password' type="password" id="password" name="password" required>
                 </div>
 
-
                 <div>
                     <button type="submit">Login</button>
+                </div>
+                
+                <div>
+                    Don't have an account? <a href='/register'>Register here</a>
                 </div>
         </form>
 

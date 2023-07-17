@@ -51,3 +51,9 @@ h1{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+form a{
+    background-image: linear-gradient(to bottom, #222831, #ff5722);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
