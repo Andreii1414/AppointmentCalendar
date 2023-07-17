@@ -61,3 +61,13 @@ form a:hover{
     margin: 0 auto;
     justify-content: center;
 }
+
+.icon {
+    width: 2em;
+    height: 1em;
+    text-align: center;
+}
+
+.fa-eye {
+    cursor: pointer;
+}
