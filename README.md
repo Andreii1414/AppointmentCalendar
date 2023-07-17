@@ -1,6 +1,8 @@
 # AppointmentCalendar
 
 Presentation video: https://www.youtube.com/watch?v=bR_Blm3mA_o
+
+
 A user:
 - can create a maximum of 2 accounts from the same IP
 - can see the available and unavailable intervals of a day (except previous dates and weekends)
