@@ -46,14 +46,18 @@ button:hover{
     background: linear-gradient(to bottom, #192129, #e64a19);
 }
 
-h1{
+h1, form a{
     background-image: linear-gradient(to bottom, #222831, #ff5722);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-form a{
-    background-image: linear-gradient(to bottom, #222831, #ff5722);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+form a:hover{
+    background-image: linear-gradient(to bottom, #192129, #e64a19);
+}
+
+.g-recaptcha {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
 }

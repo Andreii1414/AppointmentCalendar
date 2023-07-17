@@ -13,10 +13,11 @@ class RegisterController extends \Illuminate\Routing\Controller
         $email = $request->input('email');
         $password = $request->input('password');
         $repeat = $request->input('repeat');
+        $captchaResponse = $request->input('g-recaptcha-response');
 
         $userIp = $request->ip();
 
-        $errors = $this->validateRegister($email, $password, $repeat, $userIp);
+        $errors = $this->validateRegister($email, $password, $repeat, $userIp, $captchaResponse);
         if (!empty($errors)) {
             return redirect()->back()->withErrors($errors)->withInput();
         }
@@ -35,7 +36,7 @@ class RegisterController extends \Illuminate\Routing\Controller
         
     }
 
-    private function validateRegister($email, $password, $repeat, $userIp)
+    private function validateRegister($email, $password, $repeat, $userIp, $captchaResponse)
     {
         $errors = [];
         if ($password !== $repeat)
@@ -70,6 +71,41 @@ class RegisterController extends \Illuminate\Routing\Controller
             $errors[] = 'Invalid email domain. Please use: ' . $domText;
         }
 
+        if (!$this->validateRecaptcha($captchaResponse)) {
+            $errors[] = 'Invalid reCAPTCHA response. Please try again.';
+        }
+
         return $errors;
+    }
+
+    private function validateRecaptcha($captchaResponse)
+    {
+        $secretKey = '6LdqJy4nAAAAAOVM8eC4VWf4kUXVD495kdhMEzoq';
+        $verifyUrl = 'https://www.google.com/recaptcha/api/siteverify';
+        
+        $data = [
+            'secret' => $secretKey,
+            'response' => $captchaResponse
+        ];
+
+        $options = [
+            'http' =>[
+                'header' => 'Content-type: application/x-www-form-urlencoded',
+                'method' => 'POST',
+                'content' => http_build_query($data)
+            ]
+        ];
+
+        $context = stream_context_create($options);
+        $result  = file_get_contents($verifyUrl, false, $context);
+
+        if($result === false)
+        {
+            return false;
+        }
+
+        $responseData = json_decode($result);
+        return $responseData->success;
+        
     }
 }

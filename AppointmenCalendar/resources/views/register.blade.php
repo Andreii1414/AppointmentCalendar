@@ -6,6 +6,7 @@
     <title>Register</title>
     <link rel="stylesheet" type="text/css" href="{{ url('css/forms.css') }}" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
     <div class='content'>
@@ -27,6 +28,8 @@
                 <div>
                     <input placeholder='Repeat your password' type="password" id="repeat" name="repeat" required>
                 </div>
+
+                <div class="g-recaptcha" data-sitekey="6LdqJy4nAAAAADUUjiZjfSotSUxMikRhkhkQpfOb"></div>
 
                 <div>
                     <button type="submit">Register</button>
