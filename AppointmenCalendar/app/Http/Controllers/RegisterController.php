@@ -58,6 +58,18 @@ class RegisterController extends \Illuminate\Routing\Controller
             $errors[] = 'You have reached the limit of 2 accounts per IP';
         }
 
+        $domain = substr(strrchr($email, "@"), 1);
+        $allowedDomains = ['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'mail.com', 'protonmail.com', 'icloud.com', 'aol.com'];
+        
+        $domText = $allowedDomains[0];
+        for($i = 1; $i < count($allowedDomains); $i++){
+            $domText .= ', ' . $allowedDomains[$i];
+        }
+
+        if(!in_array($domain, $allowedDomains)){
+            $errors[] = 'Invalid email domain. Please use: ' . $domText;
+        }
+
         return $errors;
     }
 }
