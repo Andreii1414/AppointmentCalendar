@@ -15,10 +15,5 @@ An admin:
 - has all of the above
 - can delete a user
 - can delete an appointment (when an appointment is deleted by the admin, an email is sent to the person whose appointment was deleted)
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
 - can delete all appointments older than the current date from the database
-=======
->>>>>>> 8629d0ffff935475ba85f970a1ec7c2ea7c4c190
->>>>>>> Stashed changes
+
