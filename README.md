@@ -17,3 +17,5 @@ An admin:
 - can delete an appointment (when an appointment is deleted by the admin, an email is sent to the person whose appointment was deleted)
 - can delete all appointments older than the current date from the database
 
+Admin account:
+email: admin@gmail.com; Password: admin123
