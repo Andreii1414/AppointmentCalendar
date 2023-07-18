@@ -50,3 +50,5 @@ Route::get('/get-all-appointments', [AdminController::class, 'getAllAppointments
 Route::get('/verify', [VerifyController::class, 'sendToken'])->name('verify');
 
 Route::post('/verify-code', [VerifyController::class, 'verifyCode'])->name('verifyCode');
+
+Route::delete('/delete-past-appointments', [AdminController::class, 'deletePastAppointments'])->name('deletePastAppointments');

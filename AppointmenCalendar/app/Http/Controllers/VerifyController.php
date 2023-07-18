@@ -30,7 +30,8 @@ class VerifyController extends \Illuminate\Routing\Controller
                         ->setPassword('xcyoxtgmegexlycb');
                 $mailer = new Swift_Mailer($transport);
 
-                $body = "<p>Your account verification token is:</p> <p style='color:red;'>$token</p>";
+                $body = "<p>Your account verification token is:</p> <p style='color:red;'>$token</p> <br>
+                    <p style='color:white'>The token is valid for 10 minutes </p>";
                 $message = (new Swift_Message('Verify your account'))
                     ->setFrom(['rot6980@gmail.com' => 'Appointment Calendar'])
                     ->setTo($userEmail)

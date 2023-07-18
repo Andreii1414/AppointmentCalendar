@@ -27,7 +27,7 @@ class AdminController extends \Illuminate\Routing\Controller
                     DB::update('UPDATE appointments SET ' . $column . ' = ? where ' . $column . ' = ? ', [0, $existingUser[0]->id]);
                 }
 
-                return view('home');
+                return redirect()->route('home');
             }
         }
     }
@@ -54,5 +54,14 @@ class AdminController extends \Illuminate\Routing\Controller
             }
             return $appointments;
         }
+    }
+    public function deletePastAppointments(){
+        $isAdmin = Session::get('admin');
+
+        if($isAdmin)
+        {
+            DB::delete('DELETE FROM appointments WHERE STR_TO_DATE(app_date, "%d.%m.%Y") < CURDATE()');
+        }
+        return redirect()->route('home');
     }
 }

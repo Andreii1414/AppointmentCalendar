@@ -86,6 +86,12 @@
                         </ul>
                     </div>
                 @endif
+                <h4>Delete from the database appointments <br> older than the current date</h4>
+                <form action='/delete-past-appointments' method='POST'>
+                     @csrf
+                     @method('DELETE')
+                    <button>Delete</button> 
+                </form>
             <div id="all_appointments"></div>
             </div>
             @endif
